@@ -2,11 +2,12 @@ package com.ismailguler.meettime
 
 import android.content.Context
 import android.content.SharedPreferences
+import java.util.Locale
 
 class SharedPreferencesUtil(private val context: Context) {
     companion object {
         private const val USER_LIST_KEY = "USER_LIST_KEY"
-        private val defaultUsers = listOf("İsmail", "Ali", "Süleyman", "Hasan")
+        private val defaultUsers = mutableListOf<String>("İsmail", "Ali", "Süleyman", "Hasan")
     }
 
     private val sharedPreferences: SharedPreferences =
@@ -17,7 +18,7 @@ class SharedPreferencesUtil(private val context: Context) {
         sharedPreferences.edit().putStringSet(key, stringSet).apply()
     }
 
-    fun getStringList(key: String): List<String> {
+    fun getStringList(key: String): MutableList<String> {
         val stringSet = sharedPreferences.getStringSet(key, HashSet()) ?: HashSet()
         return ArrayList(stringSet)
     }
@@ -26,12 +27,19 @@ class SharedPreferencesUtil(private val context: Context) {
         sharedPreferences.edit().clear().apply()
     }
 
-    fun getUsers(): List<String> {
-        val userList = getStringList(USER_LIST_KEY)
+    fun getUsers(): MutableList<String> {
+        var userList = getStringList(USER_LIST_KEY)
         if (userList.isEmpty()) {
             saveStringList(USER_LIST_KEY, defaultUsers)
-            return defaultUsers
+            userList = defaultUsers
         }
+        userList.sortBy { it.lowercase(Locale("tr")) }
         return userList
+    }
+
+    fun addNewUser(userName: String) {
+        val users = getUsers()
+        users.add(userName)
+        saveStringList(USER_LIST_KEY, users)
     }
 }

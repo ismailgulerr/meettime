@@ -4,4 +4,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="base_orange">#FF6F00</color>
     <color name="base_turkuaz">#03856F</color>
+    <color name="hint_color">#646464</color>
+    <color name="half_transparent">#80000000</color>
 </resources>
