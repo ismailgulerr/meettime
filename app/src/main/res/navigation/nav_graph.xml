@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/ChooseUserFragment"
-        android:name="com.ismailguler.meettime.ChooseUserFragment"
+        android:name="com.ismailguler.meettime.chooseUser.ChooseUserFragment"
         tools:layout="@layout/fragment_choose_user">
         <action
             android:id="@+id/action_ChooseUserFragment_to_MeetingsFragment"
