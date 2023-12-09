@@ -1,0 +1,21 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.MeetTime" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Set black background for the window -->
+        <item name="android:windowBackground">@android:color/black</item>
+
+        <!-- Customize the app bar -->
+        <item name="colorPrimary">@android:color/black</item>
+        <item name="colorPrimaryVariant">@android:color/black</item>
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:actionBarStyle">@style/AppTheme.ActionBar</item>
+    </style>
+
+    <!-- Customize the ActionBar style -->
+    <style name="AppTheme.ActionBar" parent="Widget.Material3.ActionBar.Solid">
+        <!-- Set white text color for the ActionBar title -->
+    </style>
+
+
+    <style name="Theme.MeetTime" parent="Base.Theme.MeetTime" />
+</resources>

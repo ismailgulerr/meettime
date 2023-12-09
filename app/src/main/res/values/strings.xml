@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Meet Time</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">Toplantılar</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="lorem_ipsum">1. sayfa</string>
+    <string name="lorem_ipsum2">2. sayfa</string>
+</resources>
