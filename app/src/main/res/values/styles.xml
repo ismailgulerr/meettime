@@ -2,7 +2,7 @@
 <resources>
     <style name="AppTheme.AppBarTitleAppearance" parent="TextAppearance.AppCompat">
         <item name="android:fontFamily">@font/signika_bold</item>
-        <item name="android:textColor">@color/base_green</item>
+        <item name="android:textColor">@color/base_orange</item>
         <item name="android:textSize">24sp</item>
     </style>
 </resources>
