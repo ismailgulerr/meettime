@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
+import com.ismailguler.meettime.SharedPreferencesUtil
 import com.ismailguler.meettime.databinding.FragmentChooseUserBinding
 
 
@@ -31,8 +32,7 @@ class ChooseUserFragment : Fragment(), UsersAdapter.UsersAdapterImpl {
 
     @SuppressLint("NotifyDataSetChanged")
     private fun setupRecyclerView() {
-        val users = mutableListOf<String>("İsmail", "Ali", "Süleyman", "Hasan")
-
+        val users = SharedPreferencesUtil(requireContext()).getUsers()
         adapter = UsersAdapter(users, this)
         binding.rvUsers.adapter = adapter
         binding.rvUsers.layoutManager = GridLayoutManager(activity, 2)
