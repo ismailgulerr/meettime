@@ -3,7 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/MeetingsFragment">
+    app:startDestination="@id/ChooseUserFragment">
+
+    <fragment
+        android:id="@+id/ChooseUserFragment"
+        android:name="com.ismailguler.meettime.ChooseUserFragment"
+        tools:layout="@layout/fragment_choose_user">
+        <action
+            android:id="@+id/action_ChooseUserFragment_to_MeetingsFragment"
+            app:destination="@id/MeetingsFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/MeetingsFragment"
@@ -18,12 +27,5 @@
     <fragment
         android:id="@+id/MeetingDetailFragment"
         android:name="com.ismailguler.meettime.MeetingDetailFragment"
-        tools:layout="@layout/fragment_second">
-
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/MeetingDetailFragment" >
-        </action>
-
-    </fragment>
+        tools:layout="@layout/fragment_second"/>
 </navigation>
