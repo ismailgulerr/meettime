@@ -15,38 +15,6 @@
         android:textColor="@color/base_turkuaz"
         android:fontFamily="@font/signika_semibold"
         android:textSize="25sp"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:layout_marginTop="3dp"
-            android:lines="1"
-            android:fontFamily="@font/signika_regular"
-            android:textSize="18sp"
-            android:text="Oluşturan: "
-            android:layout_marginBottom="5dp"/>
-
-        <TextView
-            android:id="@+id/tv_meeting_owner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/base_orange"
-            android:layout_marginTop="3dp"
-            android:fontFamily="@font/signika_bold"
-            android:textSize="20sp"
-            android:lines="1"
-            tools:text="İsmail Güler "
-            android:layout_marginBottom="5dp"/>
-
-    </LinearLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

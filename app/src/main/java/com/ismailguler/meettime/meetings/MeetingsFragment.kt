@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.ismailguler.meettime.R
+import com.ismailguler.meettime.SharedPreferencesUtil
 import com.ismailguler.meettime.databinding.FragmentMeetingsBinding
 import com.ismailguler.meettime.meetings.MeetingsFragmentDirections
 
@@ -32,6 +33,8 @@ class MeetingsFragment : Fragment(), MeetingsAdapter.MeetingsImpl {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val userName = SharedPreferencesUtil(requireContext()).getString(SharedPreferencesUtil.LAST_SELECTED_USER)
+        binding.tvWelcome.text = "Hoşgeldin, $userName"
         setupRecyclerView()
     }
 

@@ -6,17 +6,66 @@
     android:layout_height="match_parent"
     tools:context=".meetings.MeetingsFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tv_welcome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/signika_bold"
+            android:layout_marginBottom="8dp"
+            android:textSize="28sp"
+            tools:text="Hoşgeldin, İsmail"
+            android:textColor="@color/base_orange"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:weightSum="2"
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_add"
+                android:layout_width="0dp"
+                android:textSize="18sp"
+                android:paddingHorizontal="5dp"
+                android:fontFamily="@font/signika_bold"
+                android:text="Toplantı Oluştur"
+                android:textColor="@color/base_turkuaz"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_add_user_btn"
+                android:layout_height="50dp"
+                android:textAllCaps="false"
+                android:layout_weight="1"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_close"
+                android:layout_width="0dp"
+                android:textSize="18sp"
+                android:paddingHorizontal="5dp"
+                android:fontFamily="@font/signika_bold"
+                android:textAllCaps="false"
+                android:text="Toplantı Bul"
+                android:textColor="@color/base_turkuaz"
+                android:background="@drawable/bg_add_user_btn"
+                android:layout_height="50dp"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_content"
             android:layout_width="match_parent"
             android:orientation="vertical"
+            android:nestedScrollingEnabled="false"
             android:layout_height="match_parent"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 </androidx.core.widget.NestedScrollView>

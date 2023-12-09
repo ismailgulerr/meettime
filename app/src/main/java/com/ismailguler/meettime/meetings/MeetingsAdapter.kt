@@ -26,7 +26,6 @@ class MeetingsAdapter(private val meetingList: List<Meeting>, val listener: Meet
     override fun onBindViewHolder(holder: MeetingViewHolder, position: Int) {
         val currentMeeting = meetingList[position]
         holder.binding.tvMeetingTitle.text = currentMeeting.title
-        holder.binding.tvMeetingOwner.text = currentMeeting.owner
         holder.binding.tvMeetingCode.text = generateSixDigitRandomUUID()
         holder.binding.root.setOnClickListener { listener.onClickedMeeting(currentMeeting) }
     }
