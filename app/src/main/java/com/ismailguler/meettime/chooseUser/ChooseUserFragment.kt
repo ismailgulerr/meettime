@@ -14,6 +14,7 @@ import android.widget.EditText
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.ismailguler.meettime.R
 import com.ismailguler.meettime.SharedPreferencesUtil
@@ -52,7 +53,8 @@ class ChooseUserFragment : Fragment(), UsersAdapter.UsersAdapterImpl {
     }
 
     override fun onClickedUser(user: String) {
-
+        SharedPreferencesUtil(requireContext()).saveString(SharedPreferencesUtil.LAST_SELECTED_USER, user)
+        findNavController().navigate(R.id.action_ChooseUserFragment_to_MeetingsFragment)
     }
 
     private fun showAddUserDialog() {

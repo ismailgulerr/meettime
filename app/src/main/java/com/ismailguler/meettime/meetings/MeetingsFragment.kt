@@ -42,12 +42,15 @@ class MeetingsFragment : Fragment(), MeetingsAdapter.MeetingsImpl {
 
     @SuppressLint("NotifyDataSetChanged")
     private fun setupRecyclerView() {
-        val meetingList = mutableListOf<Meeting>()
-
-        for (i in 1..20) {
-            val meeting = Meeting("Meeting $i", "Code $i", "İsmail Güler")
-            meetingList.add(meeting)
-        }
+        val meetingList = mutableListOf<Meeting>(Meeting("Meeting 1", "Code 1", "İsmail Güler"),
+            Meeting("Meeting 1", "Code 1", "İsmail Güler"),
+            Meeting("Meeting 1", "Code 1", "İsmail Güler"),
+            Meeting("Meeting 1", "Code 1", "İsmail Güler"),
+            Meeting("Meeting 1", "Code 1", "İsmail Güler"),
+            Meeting("Meeting 1", "Code 1", "İsmail Güler"),
+            Meeting("Meeting 1", "Code 1", "İsmail Güler"),
+            Meeting("Meeting 1", "Code 1", "İsmail Güler"),
+            )
 
         adapter = MeetingsAdapter(meetingList, this)
         binding.rvContent.adapter = adapter

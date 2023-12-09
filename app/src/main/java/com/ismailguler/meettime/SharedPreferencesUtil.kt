@@ -8,6 +8,7 @@ class SharedPreferencesUtil(private val context: Context) {
     companion object {
         private const val USER_LIST_KEY = "USER_LIST_KEY"
         private val defaultUsers = mutableListOf<String>("İsmail", "Ali", "Süleyman", "Hasan")
+        const val LAST_SELECTED_USER = "LAST_SELECTED_USER"
     }
 
     private val sharedPreferences: SharedPreferences =
@@ -21,6 +22,14 @@ class SharedPreferencesUtil(private val context: Context) {
     fun getStringList(key: String): MutableList<String> {
         val stringSet = sharedPreferences.getStringSet(key, HashSet()) ?: HashSet()
         return ArrayList(stringSet)
+    }
+
+    fun saveString(key: String, value: String) {
+        sharedPreferences.edit().putString(key, value).apply()
+    }
+
+    fun getString(key: String, defaultValue: String = ""): String {
+        return sharedPreferences.getString(key, defaultValue) ?: defaultValue
     }
 
     fun clearSharedPreferences() {
@@ -39,7 +48,9 @@ class SharedPreferencesUtil(private val context: Context) {
 
     fun addNewUser(userName: String) {
         val users = getUsers()
-        users.add(userName)
-        saveStringList(USER_LIST_KEY, users)
+        if (!users.contains(userName)) {
+            users.add(userName)
+            saveStringList(USER_LIST_KEY, users)
+        }
     }
 }
