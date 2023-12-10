@@ -1,6 +1,7 @@
 package com.ismailguler.meettime.home
 
 import android.annotation.SuppressLint
+import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -8,6 +9,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
+import android.widget.EditText
+import android.widget.Toast
+import androidx.appcompat.widget.AppCompatButton
 import androidx.navigation.fragment.findNavController
 import com.ismailguler.meettime.R
 import com.ismailguler.meettime.SharedPreferencesUtil
@@ -37,6 +42,10 @@ class HomeFragment : Fragment(), MeetingsAdapter.MeetingsImpl {
         binding.btnCreateMeeting.setOnClickListener {
             findNavController().navigate(HomeFragmentDirections.actionMeetingsFragmentToCreateMeetingFragment())
         }
+
+        binding.btnFindMeeting.setOnClickListener {
+            showFindMeetingDialog()
+        }
         setupRecyclerView()
     }
 
@@ -64,5 +73,34 @@ class HomeFragment : Fragment(), MeetingsAdapter.MeetingsImpl {
         shareIntent.putExtra(Intent.EXTRA_TEXT, meeting.code)
         val shareAction = Intent.createChooser(shareIntent, "Kodu Paylaş")
         startActivity(shareAction)
+    }
+
+    private fun showFindMeetingDialog() {
+        val alertDialog = Dialog(requireContext(), R.style.TransparentDialog)
+        alertDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        alertDialog.setContentView(R.layout.dialog_find_meeting)
+        alertDialog.window!!.setBackgroundDrawableResource(R.color.half_transparent)
+        alertDialog.findViewById<AppCompatButton>(R.id.btn_close).setOnClickListener {
+            alertDialog.dismiss()
+        }
+        val etMeetingCode =  alertDialog.findViewById<EditText>(R.id.et_meeting_code)
+
+        alertDialog.findViewById<AppCompatButton>(R.id.btn_find_meeting).setOnClickListener {
+            val code = etMeetingCode.text.toString()
+            if (code.length == 6) {
+                alertDialog.dismiss()
+                findAndNavigateToMeeting(code)
+            } else {
+                Toast.makeText(requireContext(),"Toplantı kodu 6 haneli olmalıdır.", Toast.LENGTH_LONG).show()
+            }
+        }
+        alertDialog.show()
+    }
+
+    private fun findAndNavigateToMeeting(code: String) {
+        val sh = SharedPreferencesUtil(requireContext())
+        sh.getAllMeetings().find { it.code == code }?.let { meeting ->
+            onClickedMeeting(meeting)
+        }
     }
 }

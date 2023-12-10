@@ -45,6 +45,7 @@
                 android:layout_weight="1"/>
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_find_meeting"
                 android:layout_width="0dp"
                 android:textSize="18sp"
                 android:paddingHorizontal="5dp"

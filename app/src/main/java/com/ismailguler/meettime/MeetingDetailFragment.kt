@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import com.ismailguler.meettime.databinding.FragmentMeetingDetailBinding
 import com.ismailguler.meettime.home.Meeting
 
@@ -50,6 +51,8 @@ class MeetingDetailFragment : Fragment() {
                     onClickedShare(it)
                 }
             }
+
+            btnApply.isVisible = meeting?.owner != SharedPreferencesUtil(requireContext()).getCurrentUser()
         }
 
     }
