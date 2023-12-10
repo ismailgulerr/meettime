@@ -76,9 +76,10 @@ class SharedPreferencesUtil(private val context: Context) {
         }
     }
 
-    fun getMeetingList(): MutableList<Meeting> {
+    fun getCreatedMeetingList(): MutableList<Meeting> {
         val gson = Gson()
+        val currentUser = getCurrentUser()
         return getStringList(CREATED_MEETINGS).map { gson.fromJson(it, Meeting::class.java) }
-            .toMutableList()
+            .filter { it.owner == currentUser}.toMutableList()
     }
 }

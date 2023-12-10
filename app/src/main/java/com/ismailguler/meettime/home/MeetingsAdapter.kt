@@ -1,6 +1,10 @@
 package com.ismailguler.meettime.home
 
 import android.annotation.SuppressLint
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +13,7 @@ import com.ismailguler.meettime.R
 import com.ismailguler.meettime.databinding.ItemMeetingBinding
 import java.util.UUID
 
-class MeetingsAdapter(private val meetingList: List<Meeting>, val listener: MeetingsImpl) :
+class MeetingsAdapter(val context: Context, private val meetingList: List<Meeting>, val listener: MeetingsImpl) :
     RecyclerView.Adapter<MeetingsAdapter.MeetingViewHolder>() {
 
     class MeetingViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -28,6 +32,9 @@ class MeetingsAdapter(private val meetingList: List<Meeting>, val listener: Meet
         holder.binding.tvMeetingTitle.text = currentMeeting.title
         holder.binding.tvMeetingCode.text = currentMeeting.code
         holder.binding.root.setOnClickListener { listener.onClickedMeeting(currentMeeting) }
+        holder.binding.btnCopy.setOnClickListener {
+            listener.onClickedShare(currentMeeting)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -36,5 +43,6 @@ class MeetingsAdapter(private val meetingList: List<Meeting>, val listener: Meet
 
     interface MeetingsImpl {
         fun onClickedMeeting(meeting: Meeting)
+        fun onClickedShare(meeting: Meeting)
     }
 }

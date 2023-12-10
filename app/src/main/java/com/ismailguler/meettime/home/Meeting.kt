@@ -10,4 +10,6 @@ class Meeting(var title: String,
               var description: String,
               var date: String,
               var time: String,
-              ): Parcelable
+): Parcelable {
+    var participants: MutableList<String> = mutableListOf()
+}

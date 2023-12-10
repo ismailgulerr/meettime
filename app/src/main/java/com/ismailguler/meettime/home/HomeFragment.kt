@@ -1,6 +1,8 @@
 package com.ismailguler.meettime.home
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -45,8 +47,8 @@ class HomeFragment : Fragment(), MeetingsAdapter.MeetingsImpl {
 
     @SuppressLint("NotifyDataSetChanged")
     private fun setupRecyclerView() {
-        val meetingList: MutableList<Meeting> = SharedPreferencesUtil(requireContext()).getMeetingList()
-        adapter = MeetingsAdapter(meetingList, this)
+        val meetingList: MutableList<Meeting> = SharedPreferencesUtil(requireContext()).getCreatedMeetingList()
+        adapter = MeetingsAdapter(requireContext(), meetingList, this)
         binding.rvContent.adapter = adapter
     }
 
@@ -54,5 +56,13 @@ class HomeFragment : Fragment(), MeetingsAdapter.MeetingsImpl {
         val bundle = Bundle()
         bundle.putParcelable("meeting", meeting)
         findNavController().navigate(R.id.action_MeetingsFragment_to_MeetingDetailFragment,bundle)
+    }
+
+    override fun onClickedShare(meeting: Meeting) {
+        val shareIntent = Intent(Intent.ACTION_SEND)
+        shareIntent.type = "text/plain"
+        shareIntent.putExtra(Intent.EXTRA_TEXT, meeting.code)
+        val shareAction = Intent.createChooser(shareIntent, "Kodu Paylaş")
+        startActivity(shareAction)
     }
 }
