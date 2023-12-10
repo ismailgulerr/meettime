@@ -1,4 +1,4 @@
-package com.ismailguler.meettime.meetings
+package com.ismailguler.meettime.home
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -10,9 +10,8 @@ import androidx.navigation.fragment.findNavController
 import com.ismailguler.meettime.R
 import com.ismailguler.meettime.SharedPreferencesUtil
 import com.ismailguler.meettime.databinding.FragmentMeetingsBinding
-import com.ismailguler.meettime.meetings.MeetingsFragmentDirections
 
-class MeetingsFragment : Fragment(), MeetingsAdapter.MeetingsImpl {
+class HomeFragment : Fragment(), MeetingsAdapter.MeetingsImpl {
 
     private var _binding: FragmentMeetingsBinding? = null
     private lateinit var adapter: MeetingsAdapter

@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/MeetingsFragment"
-        android:name="com.ismailguler.meettime.meetings.MeetingsFragment"
+        android:name="com.ismailguler.meettime.home.HomeFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_meetings">
 

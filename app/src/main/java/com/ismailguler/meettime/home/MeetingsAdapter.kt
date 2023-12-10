@@ -1,4 +1,4 @@
-package com.ismailguler.meettime.meetings
+package com.ismailguler.meettime.home
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -26,7 +26,7 @@ class MeetingsAdapter(private val meetingList: List<Meeting>, val listener: Meet
     override fun onBindViewHolder(holder: MeetingViewHolder, position: Int) {
         val currentMeeting = meetingList[position]
         holder.binding.tvMeetingTitle.text = currentMeeting.title
-        holder.binding.tvMeetingCode.text = generateSixDigitRandomUUID()
+        holder.binding.tvMeetingCode.text = "1234"//generateSixDigitRandomUUID()
         holder.binding.root.setOnClickListener { listener.onClickedMeeting(currentMeeting) }
     }
 

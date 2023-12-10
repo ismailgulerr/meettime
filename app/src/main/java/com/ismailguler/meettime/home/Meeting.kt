@@ -1,4 +1,4 @@
-package com.ismailguler.meettime.meetings
+package com.ismailguler.meettime.home
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
