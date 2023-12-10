@@ -28,10 +28,11 @@
             android:id="@+id/action_MeetingsFragment_to_CreateMeetingFragment"
             app:destination="@id/CreateMeetingFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/MeetingDetailFragment"
         android:name="com.ismailguler.meettime.MeetingDetailFragment"
-        tools:layout="@layout/fragment_second"/>
+        tools:layout="@layout/fragment_meeting_detail"/>
 
     <fragment
         android:id="@+id/CreateMeetingFragment"

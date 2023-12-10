@@ -11,7 +11,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.ismailguler.meettime.databinding.FragmentCreateMeetingBinding
-import com.ismailguler.meettime.databinding.FragmentSecondBinding
 import com.ismailguler.meettime.home.Meeting
 import java.text.SimpleDateFormat
 import java.util.Calendar

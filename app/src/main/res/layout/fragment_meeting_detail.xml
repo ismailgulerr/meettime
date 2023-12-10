@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_margin="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Toplantı Başlığı"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:fontFamily="@font/signika_bold"/>
+
+    <TextView
+        android:id="@+id/tv_meeting_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/base_orange"
+        android:textSize="20sp"
+        android:fontFamily="@font/signika_bold"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Toplantı Açıklaması"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:fontFamily="@font/signika_bold"/>
+
+    <TextView
+        android:id="@+id/tv_meeting_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/base_orange"
+        android:textSize="20sp"
+        android:fontFamily="@font/signika_bold"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Toplantı Tarihi"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/signika_bold"/>
+
+    <TextView
+        android:id="@+id/tv_meeting_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/base_orange"
+        android:textSize="20sp"
+        android:fontFamily="@font/signika_bold"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Toplantı Saati"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/signika_bold"/>
+
+    <TextView
+        android:id="@+id/tv_meeting_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/base_orange"
+        android:textSize="20sp"
+        android:fontFamily="@font/signika_bold"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Toplantıyı Oluşturan"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/signika_bold"/>
+
+    <TextView
+        android:id="@+id/tv_meeting_owner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/base_orange"
+        android:textSize="20sp"
+        android:fontFamily="@font/signika_bold"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_marginTop="3dp"
+            android:fontFamily="@font/signika_bold"
+            android:textSize="20sp"
+            android:lines="1"
+            android:text="Kod: "
+            android:layout_marginBottom="5dp"/>
+
+        <TextView
+            android:id="@+id/tv_meeting_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/base_orange"
+            android:layout_marginTop="3dp"
+            android:lines="1"
+            android:fontFamily="@font/signika_bold"
+            android:textSize="20sp"
+            tools:text="C5F21"
+            android:layout_marginBottom="5dp"/>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_copy"
+            android:layout_width="100dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:scaleType="fitStart"
+            android:background="@null"
+            android:src="@drawable/ic_copy"
+            android:layout_marginStart="10dp"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_create"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_turkuaz_btn"
+            android:fontFamily="@font/signika_bold"
+            android:layout_marginHorizontal="8dp"
+            android:textSize="18sp"
+            android:text="Toplantıya Katıl"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+
+</LinearLayout>
