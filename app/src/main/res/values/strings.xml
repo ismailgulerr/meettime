@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Meet Time</string>
     <string name="first_fragment_label">Ana Sayfa</string>
+    <string name="create_meeting">Toplantı Oluştur</string>
 </resources>

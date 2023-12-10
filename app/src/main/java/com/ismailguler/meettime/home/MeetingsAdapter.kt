@@ -26,15 +26,13 @@ class MeetingsAdapter(private val meetingList: List<Meeting>, val listener: Meet
     override fun onBindViewHolder(holder: MeetingViewHolder, position: Int) {
         val currentMeeting = meetingList[position]
         holder.binding.tvMeetingTitle.text = currentMeeting.title
-        holder.binding.tvMeetingCode.text = "1234"//generateSixDigitRandomUUID()
+        holder.binding.tvMeetingCode.text = currentMeeting.code
         holder.binding.root.setOnClickListener { listener.onClickedMeeting(currentMeeting) }
     }
 
     override fun getItemCount(): Int {
         return meetingList.size
     }
-
-    private fun generateSixDigitRandomUUID(): String = UUID.randomUUID().toString().substring(0, 6)
 
     interface MeetingsImpl {
         fun onClickedMeeting(meeting: Meeting)

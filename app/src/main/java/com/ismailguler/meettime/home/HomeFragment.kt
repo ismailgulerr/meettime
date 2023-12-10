@@ -24,16 +24,17 @@ class HomeFragment : Fragment(), MeetingsAdapter.MeetingsImpl {
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-
         _binding = FragmentMeetingsBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val userName = SharedPreferencesUtil(requireContext()).getString(SharedPreferencesUtil.LAST_SELECTED_USER)
         binding.tvWelcome.text = "Hoşgeldin, $userName"
+        binding.btnCreateMeeting.setOnClickListener {
+            findNavController().navigate(HomeFragmentDirections.actionMeetingsFragmentToCreateMeetingFragment())
+        }
         setupRecyclerView()
     }
 
@@ -44,16 +45,7 @@ class HomeFragment : Fragment(), MeetingsAdapter.MeetingsImpl {
 
     @SuppressLint("NotifyDataSetChanged")
     private fun setupRecyclerView() {
-        val meetingList = mutableListOf<Meeting>(Meeting("Meeting 1", "Code 1", "İsmail Güler"),
-            Meeting("Meeting 1", "Code 1", "İsmail Güler"),
-            Meeting("Meeting 1", "Code 1", "İsmail Güler"),
-            Meeting("Meeting 1", "Code 1", "İsmail Güler"),
-            Meeting("Meeting 1", "Code 1", "İsmail Güler"),
-            Meeting("Meeting 1", "Code 1", "İsmail Güler"),
-            Meeting("Meeting 1", "Code 1", "İsmail Güler"),
-            Meeting("Meeting 1", "Code 1", "İsmail Güler"),
-            )
-
+        val meetingList: MutableList<Meeting> = SharedPreferencesUtil(requireContext()).getMeetingList()
         adapter = MeetingsAdapter(meetingList, this)
         binding.rvContent.adapter = adapter
     }

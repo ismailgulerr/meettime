@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Toplantı Başlığı"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:fontFamily="@font/signika_bold"/>
+
+    <EditText
+        android:id="@+id/et_meeting_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textColor="@color/black"
+        android:inputType="text"
+        android:layout_marginTop="8dp"
+        android:paddingHorizontal="6dp"
+        android:fontFamily="@font/signika_semibold"
+        android:background="@drawable/bg_add_user_btn"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Toplantı Açıklaması"
+        android:layout_marginTop="8dp"
+
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:fontFamily="@font/signika_bold"/>
+
+    <EditText
+        android:id="@+id/et_meeting_desc"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textColor="@color/black"
+        android:inputType="text"
+        android:layout_marginTop="8dp"
+        android:paddingHorizontal="6dp"
+        android:fontFamily="@font/signika_semibold"
+        android:background="@drawable/bg_add_user_btn"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Toplantı Tarihi"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/signika_bold"/>
+
+    <EditText
+        android:id="@+id/et_meeting_date"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="8dp"
+        android:inputType="date"
+        android:paddingHorizontal="6dp"
+        android:clickable="false"
+        android:cursorVisible="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:fontFamily="@font/signika_semibold"
+        android:background="@drawable/bg_add_user_btn"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Toplantı Saati"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/signika_bold"/>
+
+    <EditText
+        android:id="@+id/et_meeting_time"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:inputType="time"
+        android:textColor="@color/black"
+        android:layout_marginTop="8dp"
+        android:paddingHorizontal="6dp"
+        android:clickable="false"
+        android:cursorVisible="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:fontFamily="@font/signika_semibold"
+        android:background="@drawable/bg_add_user_btn"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_create"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_turkuaz_btn"
+            android:fontFamily="@font/signika_bold"
+            android:layout_marginHorizontal="8dp"
+            android:textSize="18sp"
+            android:text="Oluştur"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+
+</LinearLayout>

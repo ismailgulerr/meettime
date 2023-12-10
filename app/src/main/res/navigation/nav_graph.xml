@@ -24,9 +24,19 @@
         <action
             android:id="@+id/action_MeetingsFragment_to_MeetingDetailFragment"
             app:destination="@id/MeetingDetailFragment" />
+        <action
+            android:id="@+id/action_MeetingsFragment_to_CreateMeetingFragment"
+            app:destination="@id/CreateMeetingFragment" />
     </fragment>
     <fragment
         android:id="@+id/MeetingDetailFragment"
         android:name="com.ismailguler.meettime.MeetingDetailFragment"
         tools:layout="@layout/fragment_second"/>
+
+    <fragment
+        android:id="@+id/CreateMeetingFragment"
+        android:label="@string/create_meeting"
+        android:name="com.ismailguler.meettime.CreateMeetingFragment"
+        tools:layout="@layout/fragment_create_meeting"/>
+
 </navigation>
