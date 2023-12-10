@@ -76,6 +76,19 @@ class SharedPreferencesUtil(private val context: Context) {
         }
     }
 
+    fun updateMeeting(meeting: Meeting) {
+        val gson = Gson()
+        val meetingJSONList: MutableList<String> = getStringList(CREATED_MEETINGS)
+
+        meetingJSONList.indexOfFirst { gson.fromJson(it, Meeting::class.java).code == meeting.code }
+            .let {index ->
+                if (index != -1) {
+                    meetingJSONList[index] = gson.toJson(meeting)
+                }
+            }
+        saveStringList(CREATED_MEETINGS, meetingJSONList)
+    }
+
     fun getCreatedMeetingList(): MutableList<Meeting> {
         val gson = Gson()
         val currentUser = getCurrentUser()

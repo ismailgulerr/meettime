@@ -2,11 +2,11 @@ package com.ismailguler.meettime
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
 import com.ismailguler.meettime.databinding.FragmentMeetingDetailBinding
 import com.ismailguler.meettime.home.Meeting
 
@@ -38,23 +38,41 @@ class MeetingDetailFragment : Fragment() {
         }
         (activity as? MainActivity)?.setPageTitle(meeting?.title ?: "Toplantı Detay")
 
+        meeting?.let {
+            initViews(it)
+        }
+    }
+
+    private fun initViews(meeting: Meeting) {
         binding.apply {
-            tvMeetingTitle.text = meeting?.title
-            tvMeetingDesc.text = meeting?.description
-            tvMeetingDate.text = meeting?.date
-            tvMeetingTime.text = meeting?.time
-            tvMeetingOwner.text = meeting?.owner
-            tvMeetingCode.text = meeting?.code
+            tvMeetingTitle.text = meeting.title
+            tvMeetingDesc.text = meeting.description
+            tvMeetingDate.text = meeting.date
+            tvMeetingTime.text = meeting.time
+            tvMeetingOwner.text = meeting.owner
+            tvMeetingCode.text = meeting.code
 
             btnCopy.setOnClickListener {
-                meeting?.let {
+                meeting.let {
                     onClickedShare(it)
                 }
             }
 
-            btnApply.isVisible = meeting?.owner != SharedPreferencesUtil(requireContext()).getCurrentUser()
-        }
+            val sh = SharedPreferencesUtil(requireContext())
+            btnApply.isVisible = meeting.owner != sh.getCurrentUser()
 
+            if (meeting.getParticipants().contains(sh.getCurrentUser())) {
+                btnApply.text = "Toplantıya Kaydoldunuz"
+            } else {
+                btnApply.text = "Toplantıya Kaydolun"
+                btnApply.setOnClickListener {
+                    meeting.addParticipant(sh.getCurrentUser())
+                    sh.updateMeeting(meeting)
+                    btnApply.setOnClickListener {  }
+                    initViews(meeting)
+                }
+            }
+        }
     }
 
     override fun onDestroyView() {
